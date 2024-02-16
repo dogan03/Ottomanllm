@@ -79,8 +79,8 @@ class PreTrainer:
 
         loop.set_description(f"Epoch {epoch}")
         loop.set_postfix(loss=loss.item())
-  def Save(self):
-    pass
+  def Save(self, model_path):
+    torch.save(self.Training_args.MODEL.state_dict(), model_path)
 class PreTrainerDataset(torch.utils.data.Dataset):
   def __init__(self, encodings):
     self.encodings = encodings
